@@ -26,6 +26,10 @@ $(".btn").on("click", function(event) {
         
         if(!checkAnswer(userClickedPattern.length-1)) {
             playSound("wrong");
+            $("body").addClass("game-over");
+            setTimeout(() => {
+                $("body").removeClass("game-over");
+            },500);
             gameStarted = false;
             gamePattern = [];
             $("#level-title").text("Game Over | Score " + (level));
